@@ -1,6 +1,7 @@
 package com.example.photoalbumapp;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 public class Photo {
     private String photoName;
@@ -28,10 +29,13 @@ public class Photo {
     public LocalDate getDateTaken() {
         return dateTaken;
     }
+
     //Light validation so that the date cannot be less than the year 1970
     public void setDateTaken(LocalDate dateTaken) {
-        if(dateTaken.getYear() >= 1970)
+        LocalDate photoDateCutOff = LocalDate.of(1999, Month.DECEMBER,31);
+        if(dateTaken.isAfter(photoDateCutOff))
             this.dateTaken = dateTaken;
-        throw new IllegalArgumentException("The date must be above the year 2000");
+        else
+            throw new IllegalArgumentException("The date must be equal or after to the year 2000");
     }
 }
