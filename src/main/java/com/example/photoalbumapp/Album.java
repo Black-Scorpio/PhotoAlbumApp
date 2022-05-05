@@ -41,6 +41,22 @@ public class Album {
         album.removeIf(photo -> photo.getPhotoName().equals(photoName));
     }
 
+    /**
+     * Add favPhoto object to album Array
+     * @param photo
+     */
+    public void addFavPhoto(Photo photo){
+        favPhotos.add(photo);
+    }
+
+    /**
+     * Removes favPhoto by name of the album
+     * @return
+     */
+    public void removeFavPhoto(String photoName){
+        favPhotos.removeIf(photo -> photo.getPhotoName().equals(photoName));
+    }
+
     public String getAlbumName() {
         return albumName;
     }
@@ -61,6 +77,5 @@ public class Album {
         return favPhotos;
     }
 
-  
 
 }
